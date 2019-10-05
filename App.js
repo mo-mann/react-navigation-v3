@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import Icon from '@expo/vector-icons/Ionicons';
+import { createSwitchNavigator, createAppContainer, createDrawerNavigator, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+
+{
 /**
  * - AppSwitchNavigator
  *    - WelcomeScreen
@@ -14,35 +17,27 @@ import Icon from '@expo/vector-icons/Ionicons';
  *              - Tab 3 - SettingsStack
  *            - Any files you don't want to be a part of the Tab Navigator can go here.
  */
+}
 
-import {
-  createSwitchNavigator,
-  createAppContainer,
-  createDrawerNavigator,
-  createBottomTabNavigator,
-  createStackNavigator
-} from 'react-navigation';
 class App extends Component {
   render() {
     return <AppContainer />;
   }
 }
+
 export default App;
 
 class WelcomeScreen extends Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Button
-          title="Login"
-          onPress={() => this.props.navigation.navigate('Dashboard')}
-        />
+        <Button title="Login" onPress={() => this.props.navigation.navigate('Dashboard')} />
         <Button title="Sign Up" onPress={() => alert('button pressed')} />
       </View>
     );
   }
 }
-
+Û
 class DashboardScreen extends Component {
   render() {
     return (
@@ -98,6 +93,7 @@ const DashboardTabNavigator = createBottomTabNavigator(
     }
   }
 );
+
 const DashboardStackNavigator = createStackNavigator(
   {
     DashboardTabNavigator: DashboardTabNavigator
@@ -106,12 +102,7 @@ const DashboardStackNavigator = createStackNavigator(
     defaultNavigationOptions: ({ navigation }) => {
       return {
         headerLeft: (
-          <Icon
-            style={{ paddingLeft: 10 }}
-            onPress={() => navigation.openDrawer()}
-            name="md-menu"
-            size={30}
-          />
+          <Icon style={{ paddingLeft: 10 }} size={30} name="md-menu" onPress={() => navigation.openDrawer()} />
         )
       };
     }
